@@ -15,8 +15,19 @@ function login(email, password) {
   return { token, user: safeUser };
 }
 
+function register(email, password) {
+  if (!email || !password) return null;
+  if (userModel.findByEmail(email)) return null;
+  const passwordHash = bcrypt.hashSync(password, 10);
+  const user = userModel.create(email, passwordHash);
+  if (!user) return null;
+  const token = jwt.sign({ userId: user.id }, JWT_SECRET, { expiresIn: JWT_EXPIRY });
+  const { password_hash, ...safeUser } = user;
+  return { token, user: safeUser };
+}
+
 function getMe(userId) {
   return userModel.findById(userId) || null;
 }
 
-module.exports = { login, getMe };
+module.exports = { login, register, getMe };

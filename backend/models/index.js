@@ -28,6 +28,11 @@ const userModel = {
   findById(id) {
     return db.prepare('SELECT id, email, name, role, created_at FROM users WHERE id = ?').get(id);
   },
+
+  create(email, passwordHash) {
+    const result = db.prepare('INSERT INTO users (email, password_hash, role) VALUES (?, ?, ?)').run(email, passwordHash, 'customer');
+    return this.findById(result.lastInsertRowid);
+  },
 };
 
 const orderModel = {
