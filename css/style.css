@@ -506,31 +506,6 @@ body {
   color: var(--color-white);
 }
 
-/* Cart page */
-.cart-item-row td {
-  vertical-align: middle;
-}
-
-.cart-empty {
-  padding: 3rem;
-  text-align: center;
-  color: var(--color-text-muted);
-}
-
-/* Login page */
-.login-card {
-  max-width: 400px;
-  margin: 2rem auto;
-}
-
-/* Product detail page */
-.product-detail-img {
-  min-height: 400px;
-  background-size: cover;
-  background-position: center;
-  border-radius: 8px;
-}
-
 /* Responsive */
 @media (max-width: 991.98px) {
   .hero {

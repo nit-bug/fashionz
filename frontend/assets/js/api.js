@@ -34,14 +34,6 @@
       return fetch(BASE + '/api/products/' + id).then(handleResponse);
     },
 
-    register: function (email, password) {
-      return fetch(BASE + '/api/auth/register', {
-        method: 'POST',
-        headers: headers(false),
-        body: JSON.stringify({ email: email, password: password })
-      }).then(handleResponse);
-    },
-
     login: function (email, password) {
       return fetch(BASE + '/api/auth/login', {
         method: 'POST',
