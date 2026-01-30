@@ -1,0 +1,10 @@
+{
+  "name": "fashionz",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node backend/server.js",
+    "backend:install": "cd backend && npm install",
+    "backend:seed": "cd backend && npm run seed"
+  }
+}

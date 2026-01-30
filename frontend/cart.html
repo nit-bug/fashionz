@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart – Fashionz</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <div class="top-bar">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center py-2">
+          <a href="mailto:info@fashionz.com" class="text-decoration-none text-muted small"><i class="fas fa-envelope me-1"></i> info@fashionz.com</a>
+          <span class="text-muted small"><i class="fas fa-phone me-1"></i> 010-020-0340</span>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Fashionz</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMain">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+            <li class="nav-item" id="nav-login"><a class="nav-link" href="login.html">Login</a></li>
+            <li class="nav-item d-none" id="nav-logout"><a class="nav-link" href="#" id="logout-link">Logout</a></li>
+            <li class="nav-item">
+              <a class="nav-link cart-link" href="cart.html" aria-label="Cart">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="cart-count">0</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="section-pad">
+    <div class="container">
+      <h1 class="section-heading mb-4">Your Cart</h1>
+      <div id="cart-content">
+        <div class="text-center py-5 text-muted">Loading…</div>
+      </div>
+      <div id="cart-checkout" class="d-none mt-4 text-end">
+        <p class="fs-5"><strong>Total: $<span id="cart-total">0.00</span></strong></p>
+        <button type="button" class="btn btn-dark" id="checkout-btn">Checkout</button>
+        <p class="small text-muted mt-2" id="checkout-msg"></p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-bottom py-3">
+      <div class="container text-center text-muted small">
+        &copy; <span id="footer-year"></span> Fashionz.
+      </div>
+    </div>
+  </footer>
+
+  <script>window.API_BASE = 'http://localhost:5000';</script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/state.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/analytics.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    (function() {
+      if (window.FashionzAuth && window.FashionzAuth.isLoggedIn && window.FashionzAuth.isLoggedIn()) {
+        var loginEl = document.getElementById('nav-login');
+        var logoutEl = document.getElementById('nav-logout');
+        if (loginEl) loginEl.classList.add('d-none');
+        if (logoutEl) logoutEl.classList.remove('d-none');
+      }
+      var logoutLink = document.getElementById('logout-link');
+      if (logoutLink && window.FashionzAuth) {
+        logoutLink.addEventListener('click', function(e) { e.preventDefault(); window.FashionzAuth.logout(); window.location.href = 'index.html'; });
+      }
+      function renderCart() {
+        var cart = window.FashionzState ? window.FashionzState.getCart() : [];
+        var content = document.getElementById('cart-content');
+        var checkout = document.getElementById('cart-checkout');
+        var totalEl = document.getElementById('cart-total');
+        if (!content) return;
+        if (!cart.length) {
+          content.innerHTML = '<div class="cart-empty">Your cart is empty. <a href="shop.html">Continue shopping</a>.</div>';
+          checkout.classList.add('d-none');
+          return;
+        }
+        var total = window.FashionzState ? window.FashionzState.getTotal() : 0;
+        content.innerHTML = '<table class="table"><thead><tr><th>Product</th><th>Price</th><th>Qty</th><th>Subtotal</th><th></th></tr></thead><tbody>' +
+          cart.map(function(item) {
+            var sub = (item.price || 0) * (item.quantity || 0);
+            return '<tr class="cart-item-row">' +
+              '<td><strong>' + (item.title || '') + '</strong></td>' +
+              '<td>$' + (item.price || 0).toFixed(2) + '</td>' +
+              '<td>' + (item.quantity || 0) + '</td>' +
+              '<td>$' + sub.toFixed(2) + '</td>' +
+              '<td><button type="button" class="btn btn-sm btn-outline-danger remove-cart-item" data-id="' + item.productId + '">Remove</button></td></tr>';
+          }).join('') + '</tbody></table>';
+        if (totalEl) totalEl.textContent = total.toFixed(2);
+        checkout.classList.remove('d-none');
+        content.querySelectorAll('.remove-cart-item').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            window.FashionzState.removeFromCart(parseInt(btn.getAttribute('data-id'), 10));
+            renderCart();
+          });
+        });
+      }
+      renderCart();
+      if (window.FashionzState && window.FashionzState.onCartChange) {
+        window.FashionzState.onCartChange(renderCart);
+      }
+      var checkoutBtn = document.getElementById('checkout-btn');
+      var checkoutMsg = document.getElementById('checkout-msg');
+      if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', function() {
+          if (!window.FashionzAuth || !window.FashionzAuth.isLoggedIn()) {
+            window.location.href = 'login.html?redirect=' + encodeURIComponent(window.location.href);
+            return;
+          }
+          var cart = window.FashionzState.getCart();
+          if (!cart.length) { if (checkoutMsg) checkoutMsg.textContent = 'Cart is empty.'; return; }
+          var items = cart.map(function(x) { return { productId: x.productId, quantity: x.quantity }; });
+          window.FashionzAPI.createOrder(items).then(function(res) {
+            window.FashionzState.setCart([]);
+            if (window.FashionzAnalytics) window.FashionzAnalytics.purchase(res.orderId, res.total);
+            if (checkoutMsg) checkoutMsg.textContent = 'Order placed! Order #' + res.orderId + '. Total: $' + (res.total || 0).toFixed(2);
+            checkoutMsg.classList.remove('text-danger');
+            checkoutMsg.classList.add('text-success');
+            renderCart();
+          }).catch(function(err) {
+            if (checkoutMsg) {
+              checkoutMsg.textContent = (err && err.message) || 'Checkout failed. Please try again.';
+              checkoutMsg.classList.add('text-danger');
+            }
+          });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

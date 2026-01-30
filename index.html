@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fashionz – Fashion Brand</title>
+  <meta name="description" content="Fashionz – Curated fashion for the modern lifestyle.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <div class="top-bar">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center py-2">
+          <a href="mailto:info@fashionz.com" class="text-decoration-none text-muted small"><i class="fas fa-envelope me-1"></i> info@fashionz.com</a>
+          <span class="text-muted small"><i class="fas fa-phone me-1"></i> 010-020-0340</span>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">Fashionz</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMain">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#shop">Shop</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            <li class="nav-item">
+              <a class="nav-link cart-link" href="#" aria-label="Cart">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="cart-count">0</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="hero-slider">
+        <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=1920&q=80');">
+          <div class="hero-overlay"></div>
+          <div class="container position-relative h-100">
+            <div class="hero-content">
+              <h1 class="hero-title">Fashionz</h1>
+              <p class="hero-subtitle">Curated fashion for the modern lifestyle</p>
+              <p class="hero-tagline">Discover timeless pieces and seasonal collections crafted for those who value style and quality.</p>
+            </div>
+          </div>
+        </div>
+        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1558769132-cb1aea3c8f8e?w=1920&q=80');">
+          <div class="hero-overlay"></div>
+          <div class="container position-relative h-100">
+            <div class="hero-content">
+              <h1 class="hero-title">New Season</h1>
+              <p class="hero-subtitle">Autumn Winter Collection</p>
+              <p class="hero-tagline">Elevate your wardrobe with our latest arrivals.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="hero-nav hero-prev" aria-label="Previous slide"><i class="fas fa-chevron-left"></i></button>
+      <button type="button" class="hero-nav hero-next" aria-label="Next slide"><i class="fas fa-chevron-right"></i></button>
+      <div class="hero-dots" aria-hidden="true"></div>
+    </section>
+
+    <section id="about" class="brand-story section-pad">
+      <div class="brand-block">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-6 order-lg-2">
+              <div class="brand-block-img" style="background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&q=80');"></div>
+            </div>
+            <div class="col-lg-6 order-lg-1 py-5 py-lg-0 pe-lg-5">
+              <h2 class="section-heading">Crafted with intention</h2>
+              <h3 class="section-subheading">Quality that speaks for itself</h3>
+              <p class="text-body">We believe in fashion that lasts. Every piece in our collection is chosen for its craftsmanship, materials, and timeless appeal. No fast trends—just style you can wear season after season.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="brand-block brand-block-alt">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-6">
+              <div class="brand-block-img" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80');"></div>
+            </div>
+            <div class="col-lg-6 py-5 py-lg-0 ps-lg-5">
+              <h2 class="section-heading">Sustainable style</h2>
+              <h3 class="section-subheading">Better for you and the planet</h3>
+              <p class="text-body">We partner with brands that care about ethics and sustainability. From responsibly sourced fabrics to transparent supply chains, we're committed to a more thoughtful way of dressing.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="brand-block">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-6 order-lg-2">
+              <div class="brand-block-img" style="background-image: url('https://images.unsplash.com/photo-1445205170230-053b83016050?w=800&q=80');"></div>
+            </div>
+            <div class="col-lg-6 order-lg-1 py-5 py-lg-0 pe-lg-5">
+              <h2 class="section-heading">Your style, your way</h2>
+              <h3 class="section-subheading">Personal styling and easy returns</h3>
+              <p class="text-body">Not sure where to start? Our team is here to help. Free shipping and hassle-free returns mean you can shop with confidence and build a wardrobe that truly reflects you.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="shop" class="categories section-pad">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-heading">Categories of the month</h2>
+          <p class="section-intro mx-auto">Explore our most loved categories and find your next favourite piece.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="category-card">
+              <div class="category-card-img" style="background-image: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&q=80');"></div>
+              <div class="category-card-body">
+                <h3 class="category-card-title">Women</h3>
+                <a href="#" class="btn btn-outline-dark btn-sm">Go Shop</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="category-card">
+              <div class="category-card-img" style="background-image: url('https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600&q=80');"></div>
+              <div class="category-card-body">
+                <h3 class="category-card-title">Men</h3>
+                <a href="#" class="btn btn-outline-dark btn-sm">Go Shop</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="category-card">
+              <div class="category-card-img" style="background-image: url('https://images.unsplash.com/photo-1591561954557-26941169b49e?w=600&q=80');"></div>
+              <div class="category-card-body">
+                <h3 class="category-card-title">Accessories</h3>
+                <a href="#" class="btn btn-outline-dark btn-sm">Go Shop</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="featured" class="featured section-pad">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-heading">Featured products</h2>
+          <p class="section-intro mx-auto">Handpicked pieces from our current collection.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3">
+            <article class="product-card">
+              <a href="#" class="product-card-img-wrap">
+                <div class="product-card-img" style="background-image: url('https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=500&q=80');"></div>
+              </a>
+              <div class="product-card-body">
+                <p class="product-price">$189.00</p>
+                <h3 class="product-title"><a href="#">Wool Blend Coat</a></h3>
+                <p class="product-desc">Classic tailored coat in a soft wool blend. Perfect for transitional weather.</p>
+                <p class="product-reviews small text-muted">Reviews (32)</p>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <article class="product-card">
+              <a href="#" class="product-card-img-wrap">
+                <div class="product-card-img" style="background-image: url('https://images.unsplash.com/photo-1549298916-b41d501d3772?w=500&q=80');"></div>
+              </a>
+              <div class="product-card-body">
+                <p class="product-price">$145.00</p>
+                <h3 class="product-title"><a href="#">Leather Sneakers</a></h3>
+                <p class="product-desc">Minimal leather sneakers that pair with everything. Comfort meets style.</p>
+                <p class="product-reviews small text-muted">Reviews (48)</p>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <article class="product-card">
+              <a href="#" class="product-card-img-wrap">
+                <div class="product-card-img" style="background-image: url('https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=500&q=80');"></div>
+              </a>
+              <div class="product-card-body">
+                <p class="product-price">$78.00</p>
+                <h3 class="product-title"><a href="#">Linen Shirt</a></h3>
+                <p class="product-desc">Lightweight linen shirt in a relaxed fit. Ideal for warm days and layering.</p>
+                <p class="product-reviews small text-muted">Reviews (26)</p>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <article class="product-card">
+              <a href="#" class="product-card-img-wrap">
+                <div class="product-card-img" style="background-image: url('https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=500&q=80');"></div>
+              </a>
+              <div class="product-card-body">
+                <p class="product-price">$62.00</p>
+                <h3 class="product-title"><a href="#">Canvas Tote</a></h3>
+                <p class="product-desc">Spacious canvas tote with leather trim. Everyday carry with a clean look.</p>
+                <p class="product-reviews small text-muted">Reviews (41)</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact" class="site-footer">
+    <div class="footer-main">
+      <div class="container">
+        <div class="row g-4 py-5">
+          <div class="col-lg-4">
+            <h3 class="footer-brand">Fashionz</h3>
+            <ul class="footer-contact list-unstyled text-muted">
+              <li><i class="fas fa-map-marker-alt me-2"></i> 123 Fashion Street, Style District 10660</li>
+              <li><i class="fas fa-phone me-2"></i> 010-020-0340</li>
+              <li><i class="fas fa-envelope me-2"></i> info@fashionz.com</li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h4 class="footer-heading">Products</h4>
+            <ul class="list-unstyled">
+              <li><a href="#">Women</a></li>
+              <li><a href="#">Men</a></li>
+              <li><a href="#">Accessories</a></li>
+              <li><a href="#">New Arrivals</a></li>
+              <li><a href="#">Sale</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-lg-2">
+            <h4 class="footer-heading">Further info</h4>
+            <ul class="list-unstyled">
+              <li><a href="#">Home</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#shop">Shop</a></li>
+              <li><a href="#">FAQs</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-4">
+            <h4 class="footer-heading">Newsletter</h4>
+            <p class="text-muted small">Subscribe for updates and exclusive offers.</p>
+            <form class="newsletter-form" id="newsletter-form">
+              <div class="input-group">
+                <input type="email" class="form-control" placeholder="Your email" aria-label="Email" required>
+                <button class="btn btn-dark" type="submit">Subscribe</button>
+              </div>
+              <p class="newsletter-message mt-2 small d-none" id="newsletter-message"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom py-3">
+      <div class="container text-center text-muted small">
+        &copy; <span id="footer-year"></span> Fashionz. Designed with inspiration from <a href="https://templatemo.com/templates/templatemo_559_zay_shop/" target="_blank" rel="noopener">Zay Shop (TemplateMo)</a>.
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
